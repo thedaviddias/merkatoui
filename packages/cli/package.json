@@ -1,0 +1,22 @@
+{
+  "name": "merkatoui",
+  "version": "0.0.1",
+  "description": "Merkato UI CLI",
+  "type": "module",
+  "bin": {
+    "merkatoui": "dist/index.js"
+  },
+  "files": ["dist/index.js"],
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.13",
+    "@merkatoui/config-typescript": "workspace:*",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "tsup": "^8.4.0",
+    "zod": "^3.24.2"
+  }
+}

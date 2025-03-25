@@ -1,0 +1,47 @@
+{
+  "name": "merkatoui",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prebuild": "tsx scripts/build-registry.ts",
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules dist .next",
+    "clean:workspaces": "turbo clean",
+    "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/shadcn-ui",
+    "commit": "cz",
+    "dev": "turbo dev",
+    "format": "biome check --write .",
+    "postinstall": "manypkg fix",
+    "lint": "turbo lint && manypkg check",
+    "lint:fix": "turbo lint:fix && manypkg fix && pnpm biome lint --write .",
+    "start": "turbo run start",
+    "syncpack:fix": "pnpm dlx syncpack fix-mismatches",
+    "syncpack:list": "pnpm dlx syncpack list-mismatches",
+    "typecheck": "turbo typecheck",
+    "update": "pnpm update -r",
+    "release": "turbo build && changeset publish",
+    "type-check": "turbo typecheck",
+    "version": "changeset version",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@auto-it/all-contributors": "^11.3.0",
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.28.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@manypkg/cli": "^0.23.0",
+    "@turbo/gen": "^2.4.4",
+    "cross-env": "^7.0.3",
+    "glob": "^11.0.1",
+    "lefthook": "^1.11.5",
+    "tsx": "^4.19.3",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
+  },
+  "packageManager": "pnpm@10.6.5",
+  "engines": {
+    "node": ">=20"
+  }
+}

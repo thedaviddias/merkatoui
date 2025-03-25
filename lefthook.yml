@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: pnpm dlx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    sort-package-json:
+      glob: "**/{package.json}"
+      exclude: "node_modules/**"
+      run: pnpm dlx sort-package-json {staged_files}
+    # Run TypeScript type checking on TypeScript files
+    # Will only run if at least one TypeScript file is staged
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: pnpm typecheck

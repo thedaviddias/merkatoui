@@ -1,0 +1,52 @@
+'use client'
+
+import { cn } from '@/lib/utils'
+{{#if hasIcon}}
+import { type LucideIcon } from 'lucide-react'
+{{/if}}
+import { type HTMLAttributes } from 'react'
+
+/**
+ * {{description}}
+ *
+ * @param props - Component props
+ * @param props.className - Additional CSS classes
+ {{#if hasIcon}}
+ * @param props.icon - Optional icon component
+ {{/if}}
+ *
+ * @returns React component
+ *
+ * @example
+ * ```tsx
+ * <{{componentName}} className="custom-class"{{#if hasIcon}} icon={HomeIcon}{{/if}} />
+ * ```
+ */
+export type {{componentName}}Props = HTMLAttributes<HTMLDivElement>{{#if hasIcon}} & {
+  icon?: LucideIcon
+}{{/if}}
+
+export const {{componentName}} = ({
+  className,
+  {{#if hasIcon}}
+  icon: Icon,
+  {{/if}}
+  ...props
+}: {{componentName}}Props) => {
+  return (
+    <div
+      className={cn(
+        'flex w-full items-center gap-2 p-4',
+        className
+      )}
+      {...props}
+    >
+      {{#if hasIcon}}
+      {Icon && (
+        <Icon className="h-5 w-5" />
+      )}
+      {{/if}}
+      {props.children}
+    </div>
+  )
+}

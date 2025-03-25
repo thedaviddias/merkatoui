@@ -1,0 +1,23 @@
+name: 'Release'
+description: 'Create release pull request or publish to npm'
+
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+  npm-token:
+    description: 'NPM token'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Create Release Pull Request or Publish
+      uses: changesets/action@v1.4.10
+      with:
+        publish: pnpm release
+        commit: "chore: version packages"
+        title: "chore: version packages"
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        NPM_TOKEN: ${{ inputs.npm-token }}

@@ -1,0 +1,13 @@
+name: 'Build'
+description: 'Build all packages'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Build packages
+      run: pnpm build
+      shell: bash
+
+    - name: Type check
+      run: pnpm typecheck
+      shell: bash

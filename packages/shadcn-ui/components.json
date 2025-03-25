@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "../../apps/web/app/global.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@merkatoui/shadcn-ui/components",
+    "utils": "@merkatoui/shadcn-ui/lib/utils",
+    "hooks": "@merkatoui/shadcn-ui/hooks",
+    "lib": "@merkatoui/shadcn-ui/lib",
+    "ui": "@merkatoui/shadcn-ui/components/ui"
+  }
+}

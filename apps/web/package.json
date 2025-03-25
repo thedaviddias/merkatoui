@@ -1,0 +1,39 @@
+{
+  "name": "@merkatoui/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "postinstall": "fumadocs-mdx",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@merkatoui/snippet": "workspace:*",
+    "@sentry/nextjs": "^9",
+    "@vercel/analytics": "^1.5.0",
+    "framer-motion": "12.6.0",
+    "fumadocs-core": "15.1.2",
+    "fumadocs-mdx": "11.5.7",
+    "fumadocs-ui": "15.1.2",
+    "next": "15.2.4",
+    "next-plausible": "^3.12.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "shiki": "3.2.1",
+    "sonner": "^2.0.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@merkatoui/config-typescript": "workspace:*",
+    "@tailwindcss/postcss": "^4.0.16",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^22.13.13",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.16",
+    "typescript": "^5.8.2"
+  }
+}

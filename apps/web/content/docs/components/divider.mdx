@@ -1,0 +1,108 @@
+---
+title: Divider
+description: A simple component to visually separate content.
+featured: false
+---
+
+# Divider
+
+The Divider component provides a simple way to separate content in your interface. It can be displayed horizontally or vertically, and comes in different color variants.
+
+## Installation
+
+<Installer packageName="divider" />
+
+## Usage
+
+```tsx
+import { Divider } from '@merkatoui/divider'
+
+export default function MyComponent() {
+  return (
+    <div className="space-y-4">
+      <p>Content above the divider</p>
+      <Divider />
+      <p>Content below the divider</p>
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Basic
+
+The default divider is horizontal with the default border color.
+
+```tsx
+<Divider />
+```
+
+### Vertical
+
+You can create a vertical divider by setting the `orientation` prop to `vertical`. Make sure the parent container has sufficient height.
+
+```tsx
+<div className="flex h-20">
+  <div>Left content</div>
+  <Divider orientation="vertical" className="mx-4" />
+  <div>Right content</div>
+</div>
+```
+
+### Colors
+
+The divider comes in different color variants.
+
+```tsx
+<div className="space-y-4">
+  <Divider color="default" />
+  <Divider color="primary" />
+  <Divider color="secondary" />
+</div>
+```
+
+### With Text
+
+You can also include text within your divider by nesting it within a custom layout:
+
+```tsx
+<div className="flex items-center">
+  <Divider className="flex-grow" />
+  <span className="px-3 text-muted-foreground">OR</span>
+  <Divider className="flex-grow" />
+</div>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Sets the orientation of the divider. |
+| `color` | `'default' \| 'primary' \| 'secondary'` | `'default'` | Sets the color variant of the divider. |
+| `className` | `string` | `undefined` | Additional CSS classes to add to the divider. |
+
+The component also accepts all standard HTML div attributes.
+
+## Styling
+
+The divider uses the following Tailwind CSS classes which you can customize in your theme:
+
+- `bg-border` for the default color
+- `bg-primary` for the primary color
+- `bg-secondary` for the secondary color
+- `h-px w-full` for horizontal orientation
+- `h-full w-px` for vertical orientation
+
+## Accessibility
+
+Dividers should be used purely for visual separation and not for semantic content separation. For semantic separation, consider using appropriate HTML elements like `<section>` or `<article>`.
+
+When using dividers with text (like in the "OR" example), ensure there is enough color contrast between the text and the background for readability.
+
+## Best Practices
+
+- Use dividers sparingly to avoid cluttering your interface
+- For vertical dividers, ensure the parent container has a defined height
+- Consider using margin/padding instead of dividers when appropriate for cleaner designs
+- When using colored dividers, ensure they complement your overall color scheme

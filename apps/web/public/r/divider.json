@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "homepage": "https://merkatoui.com/docs/components/divider",
+  "name": "divider",
+  "type": "registry:ui",
+  "author": "David Dias <hello@thedaviddias.com>",
+  "registryDependencies": [],
+  "dependencies": [],
+  "devDependencies": [],
+  "files": [
+    {
+      "type": "registry:ui",
+      "path": "index.tsx",
+      "content": "'use client'\n\nimport * as React from 'react'\nimport { cn } from '@merkatoui/shadcn-ui/lib/utils'\n\n/**\n * A simple divider component to visually separate content\n *\n * @param props - Component props\n * @param props.className - Additional CSS classes\n * @param props.orientation - Orientation of the divider ('horizontal' or 'vertical')\n * @param props.color - Color variant of the divider\n *\n * @returns React component\n *\n * @example\n * ```tsx\n * <Divider />\n * <Divider orientation=\"vertical\" />\n * <Divider color=\"primary\" />\n * ```\n */\nexport type DividerProps = React.HTMLAttributes<HTMLDivElement> & {\n  orientation?: 'horizontal' | 'vertical'\n  color?: 'default' | 'primary' | 'secondary'\n}\n\nexport const Divider = ({\n  className,\n  orientation = 'horizontal',\n  color = 'default',\n  ...props\n}: DividerProps) => {\n  const colorClasses = {\n    default: 'bg-border',\n    primary: 'bg-primary',\n    secondary: 'bg-secondary'\n  }\n\n  return (\n    <div\n      className={cn(\n        colorClasses[color],\n        orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',\n        className\n      )}\n      {...props}\n    />\n  )\n}\n",
+      "target": "components/ui/merkatoui/divider/index.tsx"
+    }
+  ]
+}

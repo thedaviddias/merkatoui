@@ -1,0 +1,19 @@
+{
+  "name": "@merkatoui/{{packageName}}",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@merkatoui/shadcn-ui": "workspace:*",
+    {{#if hasIcon}}
+    "lucide-react": "^0.483.0",
+    {{/if}}
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@merkatoui/config-typescript": "workspace:*",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "typescript": "^5.8.2"
+  }
+}
