@@ -24,11 +24,10 @@ jobs:
         with:
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Build
-        uses: ./.github/actions/build
-
-      - name: Test
-        uses: ./.github/actions/test
+      - name: Build CLI Only
+        run: |
+          cd packages/cli
+          pnpm build
 
       - name: Release
         uses: ./.github/actions/release

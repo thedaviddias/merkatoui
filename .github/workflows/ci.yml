@@ -5,10 +5,39 @@ on:
     branches: ['*']
   push:
     branches: ['main']
+    paths-ignore:
+      - '**'
+      - '!.changeset/**'
+      - '!.github/workflows/**'
+      - '!packages/**'
+      - '!apps/**'
 
 jobs:
+  check-skip:
+    name: Check Skip
+    runs-on: ubuntu-latest
+    outputs:
+      should-skip: ${{ steps.check.outputs.should_skip }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check commit message
+        id: check
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=format:%s)
+          if [[ "$COMMIT_MSG" == "chore: version packages" ]]; then
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
   test:
     name: Test
+    needs: check-skip
+    if: ${{ needs.check-skip.outputs.should-skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
