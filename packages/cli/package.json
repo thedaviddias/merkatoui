@@ -1,12 +1,14 @@
 {
   "name": "merkatoui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Merkato UI CLI",
   "type": "module",
   "bin": {
     "merkatoui": "dist/index.js"
   },
-  "files": ["dist/index.js"],
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
     "build": "tsup"
   },
